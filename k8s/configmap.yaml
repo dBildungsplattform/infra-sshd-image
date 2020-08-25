@@ -1,0 +1,10 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: sshd-authorized-keys
+    namespace: sshd-tests
+data:
+    authorized_keys: |
+        ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDPcvk/x+RI3KKnwWOecibxBjLDxDwJM1vaZDQn+69Gbq0uj79TBq2ErW8LNzN3oUIAi2B9zEwKw6WRnFzlQLDmE09Vxpamh0R7kpUSIKy9AN/W/PQWeaambc01+WhtjNv+2DiMHnnloQNXAD4e+HCK/zsMr6FmLv7t43SPWK0f4OPPsRZReuEtzs57TNpo89svbrdpIvSxo6y59wYE/16IueE4CYl4e8gGGolbLsVPpT8UwpamtVrbeFGFOZTljqsccZAS3l9ow3jCZOKpGtUcby0rIIcP0vLrv0N6pOR2FM0DF3dPVn6gvSQcHgOQtFF8WNRRNd51AdxwVzQ9PN8L tobi@LCE31418
+        ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCewr4nVOtG+BzvQYVc+A2UzH82b3uA/S+r7qS/HzX89qHmlC7/YFXRw0D2D6h6T3mugpMqxYj9uFiI2Yy7plDd+914iAOpj9wO8aYEm0i9goQ3GsiiPvn2oQwsXdNlb5FIgrcyf/zLSL7+Udcph52AN/DwSUiv3yGc8P0yBLLpQcqam5AhR5exq1Lkwfi4uKA41bh/r4t4qLxRCGT21pRWdmGl9ii1PRqixVFfHkPNy1lSLAGwigOTobZn4y1KhhkE7xiVtLcuD8IohGuwzAa3gZza/+nD8JKIdIFsPI8WHFaSl+sqTdh6zT8KZDld9qmORdPAb9Tiw/gVXaUsKeYD tobi2@LCE31418
