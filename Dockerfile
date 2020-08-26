@@ -20,7 +20,7 @@ RUN set -x \
 # Dir /var/run/sshd is required by daemon
 RUN mkdir /var/run/sshd
 
-# Add support user sshd config
+# Set SSHD options for User support
 RUN echo "\nMatch User support\n\
     \tAllowTcpForwarding yes\n\
     \tX11Forwarding no\n\
