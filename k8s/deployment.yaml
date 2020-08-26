@@ -18,13 +18,13 @@ spec:
     spec:
       containers:
       - name: sshd
-        image: schulcloud/sshd:8e230769e68c96c41efaa06ac34960328c57e0ae
+        image: schulcloud/sshd:448c476c482830d6c68cef25eb119da81290f4c7
         ports:
         - containerPort: 22
         volumeMounts:
         - name: authorized-keys
           mountPath: "/home/support/.ssh/authorized_keys"
-          subPath: authorized_keys
+          subPath: support_authorized_keys
           # readOnly: true
         # - name: authorized-keys
         #   mountPath: "/home/support/.ssh"
