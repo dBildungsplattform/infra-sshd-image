@@ -7,10 +7,11 @@ metadata:
   labels:
     app: sshd
 spec:
-  # type: LoadBalancer
+  type: NodePort
   selector:
     app: sshd
   ports:
-    - protocol: TCP
-      port: 22
-      targetPort: 22
+  - protocol: TCP
+    port: 22
+    targetPort: 22
+    nodePort: 30022
