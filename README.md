@@ -26,7 +26,5 @@ Makefile). For example set `DOCKER_IMAGE_TAG` to push a custom image tag:
 make push DOCKER_IMAGE_TAG="foo/bar:latest"
 ```
 
-List of available docker image tags is under https://hub.docker.com/r/schulcloud/infra-tools/tags
-
 ## Provided Tools
-* [ssh](https://tbd/)
+* [ssh](https://www.ssh.com/ssh/sshd)
