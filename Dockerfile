@@ -1,10 +1,10 @@
-ARG DEBIAN_IMAGE_TAG="stable-20200803-slim"
-
-# --- stage:release ------------------------------------------------------------
-FROM debian:${DEBIAN_IMAGE_TAG} as release
+FROM ubuntu:20.04 as release
 
 ARG BUILD_BRANCH
 ARG BUILD_HASH
+
+ARG DEBIAN_FRONTEND=noninteractive
+ENV TZ=Europe/Berlin
 
 LABEL build.stage="release"
 LABEL build.branch="${BUILD_BRANCH}"
