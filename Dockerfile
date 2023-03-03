@@ -20,16 +20,8 @@ RUN set -x \
 # Dir /var/run/sshd is required by daemon
 RUN mkdir /var/run/sshd
 
-# Set SSHD options for User support
-RUN echo "\nMatch User support\n\
-    \tAllowTcpForwarding yes\n\
-    \tX11Forwarding no\n\
-    \tAllowAgentForwarding no\n\
-    \tForceCommand /bin/false"  >> /etc/ssh/sshd_config
-
-# Add support user
-RUN useradd -ms /bin/false support
-RUN mkdir /home/support/.ssh
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
 
 EXPOSE 22
-CMD ["/usr/sbin/sshd", "-D"]
+CMD ["/docker-entrypoint.sh"]
