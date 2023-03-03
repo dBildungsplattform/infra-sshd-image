@@ -20,8 +20,9 @@ RUN set -x \
 # Dir /var/run/sshd is required by daemon
 RUN mkdir /var/run/sshd
 
-COPY docker-entrypoint.sh /docker-entrypoint.sh
-RUN chmod +x /docker-entrypoint.sh
+RUN mkdir /entrypoint
+COPY docker-entrypoint.sh /entrypoint/docker-entrypoint.sh
+RUN chmod +x /entrypoint/docker-entrypoint.sh
 
 EXPOSE 22
-CMD ["/docker-entrypoint.sh"]
+CMD ["/entrypoint/docker-entrypoint.sh"]
