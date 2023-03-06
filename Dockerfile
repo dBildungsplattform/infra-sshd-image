@@ -15,7 +15,8 @@ RUN set -x \
     && apt-get -y update \
     && apt-get -y install \
         openssh-server\
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/*\
+    && rm /etc/ssh/ssh_host_*
 
 # Dir /var/run/sshd is required by daemon
 RUN mkdir /var/run/sshd
@@ -25,4 +26,4 @@ COPY docker-entrypoint.sh /entrypoint/docker-entrypoint.sh
 RUN chmod +x /entrypoint/docker-entrypoint.sh
 
 EXPOSE 22
-CMD ["/entrypoint/docker-entrypoint.sh"]
+ENTRYPOINT ["/entrypoint/docker-entrypoint.sh"]
