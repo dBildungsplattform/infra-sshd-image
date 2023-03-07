@@ -14,6 +14,6 @@ jobs:
       # only required for workflows in private repositories
       actions: read
       contents: read
-    uses: hpi-schul-cloud/infra-tools/.github/workflows/imagetoghcr-on-push.yaml@OPS-4370-enable-logging-of-sshd-access
+    uses: hpi-schul-cloud/infra-tools/.github/workflows/imagetoghcr-on-push.yaml@master
     with:
       image_name: "infra-sshd"
