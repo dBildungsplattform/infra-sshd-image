@@ -1,10 +1,10 @@
-ARG DEBIAN_IMAGE_TAG="stable-20200803-slim"
-
-# --- stage:release ------------------------------------------------------------
-FROM debian:${DEBIAN_IMAGE_TAG} as release
+FROM ubuntu:20.04 as release
 
 ARG BUILD_BRANCH
 ARG BUILD_HASH
+
+ARG DEBIAN_FRONTEND=noninteractive
+ENV TZ=Europe/Berlin
 
 LABEL build.stage="release"
 LABEL build.branch="${BUILD_BRANCH}"
@@ -15,21 +15,15 @@ RUN set -x \
     && apt-get -y update \
     && apt-get -y install \
         openssh-server\
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/*\
+    && rm /etc/ssh/ssh_host_*
 
 # Dir /var/run/sshd is required by daemon
 RUN mkdir /var/run/sshd
 
-# Set SSHD options for User support
-RUN echo "\nMatch User support\n\
-    \tAllowTcpForwarding yes\n\
-    \tX11Forwarding no\n\
-    \tAllowAgentForwarding no\n\
-    \tForceCommand /bin/false"  >> /etc/ssh/sshd_config
-
-# Add support user
-RUN useradd -ms /bin/false support
-RUN mkdir /home/support/.ssh
+RUN mkdir /entrypoint
+COPY docker-entrypoint.sh /entrypoint/docker-entrypoint.sh
+RUN chmod +x /entrypoint/docker-entrypoint.sh
 
 EXPOSE 22
-CMD ["/usr/sbin/sshd", "-D"]
+ENTRYPOINT ["/entrypoint/docker-entrypoint.sh"]

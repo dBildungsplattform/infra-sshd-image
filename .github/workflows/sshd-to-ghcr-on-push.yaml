@@ -1,0 +1,19 @@
+---
+name: SSHD Docker Image on Push to GHCR
+
+on:
+  push:
+    branches-ignore:
+      - master
+
+jobs:
+  build_image_on_push:
+    permissions:
+      packages: write
+      security-events: write
+      # only required for workflows in private repositories
+      actions: read
+      contents: read
+    uses: hpi-schul-cloud/infra-tools/.github/workflows/imagetoghcr-on-push.yaml@master
+    with:
+      image_name: "infra-sshd"
