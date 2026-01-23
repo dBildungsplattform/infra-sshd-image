@@ -1,4 +1,4 @@
-FROM ubuntu:20.04 as release
+FROM ubuntu:24.04 AS release
 
 ARG BUILD_BRANCH
 ARG BUILD_HASH
@@ -12,7 +12,7 @@ LABEL build.hash="${BUILD_HASH}"
 
 # Install sshd
 RUN set -x \
-    && apt-get -y update \
+    && apt-get -y update --no-install-recommends \
     && apt-get -y install \
         openssh-server\
     && rm -rf /var/lib/apt/lists/*\
