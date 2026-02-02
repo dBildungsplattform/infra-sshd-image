@@ -25,10 +25,18 @@ jobs:
   build_and_push:
     needs:
       - pre_build
-    uses: hpi-schul-cloud/infra-tools/.github/workflows/build-and-push.yaml@master
+    permissions:
+      packages: write
+      security-events: write
+      contents: read
+    uses: dBildungsplattform/dbp-github-workflows/.github/workflows/image-publish-trivy.yaml@8
     with:
-      image: schulcloud/infra-sshd
-      tag: ${{ needs.pre_build.outputs.image_tag }}
+      image_name: "infra-sshd"
+      run_trivy_scan: true
+      image_tag_generation: specified
+      image_tag: ${{ needs.pre_build.outputs.image_tag }}
+      container_registry: "dockerhub"
+      dockerhub_repository_owner: schulcloudci
     secrets:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}

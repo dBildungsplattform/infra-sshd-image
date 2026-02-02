@@ -11,9 +11,11 @@ jobs:
     permissions:
       packages: write
       security-events: write
-      # only required for workflows in private repositories
-      actions: read
       contents: read
-    uses: hpi-schul-cloud/infra-tools/.github/workflows/imagetoghcr-on-push.yaml@master
+    uses: dBildungsplattform/dbp-github-workflows/.github/workflows/image-publish-trivy.yaml@8
     with:
       image_name: "infra-sshd"
+      container_registry: "ghcr.io"
+      add_latest_tag: true
+      image_tag_generation: "ticket_from_branch"
+      run_trivy_scan: true
