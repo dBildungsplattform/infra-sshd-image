@@ -28,7 +28,7 @@ jobs:
     uses: hpi-schul-cloud/infra-tools/.github/workflows/build-and-push.yaml@master
     with:
       image: schulcloud/infra-sshd
-      tag: ${{ needs.generate_image_tag.outputs.image_tag }}
+      tag: ${{ needs.pre_build.outputs.image_tag }}
     secrets:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
