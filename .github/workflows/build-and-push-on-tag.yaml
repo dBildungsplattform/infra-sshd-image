@@ -35,8 +35,5 @@ jobs:
       run_trivy_scan: true
       image_tag_generation: specified
       image_tag: ${{ needs.pre_build.outputs.image_tag }}
-      container_registry: "dockerhub"
-      dockerhub_repository_owner: schulcloud
-    secrets:
-      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-      DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+      container_registry: "ghcr.io"
+
