@@ -4,6 +4,7 @@ on:
   schedule:
     # Runs "at 2 a.m. past every day" (see https://crontab.guru)
     - cron: '0 2 * * *'
+  workflow_dispatch:
 permissions:
   # required for all workflows
   security-events: write
@@ -14,6 +15,6 @@ permissions:
 # Template Single Image Repro GHA
 jobs:
   trivy_image_scan_cron:
-    uses: hpi-schul-cloud/infra-tools/.github/workflows/trivy-scan.yaml@master
+    uses: dBildungsplattform/infra-tools/.github/workflows/trivy-scan.yaml@master
     with:
       image-ref: 'docker.io/schulcloud/sshd:latest'
