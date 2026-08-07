@@ -29,6 +29,7 @@ jobs:
       packages: write
       security-events: write
       contents: read
+      actions: read
     uses: dBildungsplattform/dbp-github-workflows/.github/workflows/image-publish-trivy.yaml@8
     with:
       image_name: "infra-sshd"
