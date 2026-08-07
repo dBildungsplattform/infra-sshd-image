@@ -17,4 +17,4 @@ jobs:
   trivy_image_scan_cron:
     uses: dBildungsplattform/infra-tools/.github/workflows/trivy-scan.yaml@a4994d155f9305d46bc6e0c0144d82648f8427a3 # version used as does not require contents: write permissions
     with:
-      image-ref: 'docker.io/schulcloud/infra-sshd:latest'
+      image-ref: 'ghcr.io/dBildungsplattform/infra-sshd:latest'
