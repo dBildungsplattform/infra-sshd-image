@@ -35,6 +35,7 @@ jobs:
       run_trivy_scan: true
       image_tag_generation: specified
       image_tag: ${{ needs.pre_build.outputs.image_tag }}
+      add_latest_tag: true
       container_registry: "dockerhub"
       dockerhub_repository_owner: schulcloud
     secrets:
