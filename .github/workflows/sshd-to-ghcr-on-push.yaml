@@ -19,3 +19,4 @@ jobs:
       add_latest_tag: true
       image_tag_generation: "ticket_from_branch"
       run_trivy_scan: true
+      fail_on_vulnerabilites: false

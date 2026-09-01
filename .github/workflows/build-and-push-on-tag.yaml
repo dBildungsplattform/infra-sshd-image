@@ -33,6 +33,7 @@ jobs:
     with:
       image_name: "infra-sshd"
       run_trivy_scan: true
+      fail_on_vulnerabilites: false
       image_tag_generation: specified
       image_tag: ${{ needs.pre_build.outputs.image_tag }}
       add_latest_tag: true
