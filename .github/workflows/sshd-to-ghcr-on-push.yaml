@@ -12,7 +12,7 @@ jobs:
       packages: write
       security-events: write
       contents: read
-    uses: dBildungsplattform/dbp-github-workflows/.github/workflows/image-publish-trivy.yaml@8
+    uses: dbildungsplattform/dbp-github-workflows/.github/workflows/image-publish-trivy.yaml@8
     with:
       image_name: "infra-sshd"
       container_registry: "ghcr.io"
